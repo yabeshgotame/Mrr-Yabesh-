@@ -156,11 +156,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize effects
     createParticles();
-    
-    // Hide loader when page is loaded
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            document.querySelector('.loader').classList.add('hidden');
-        }, 1000);
-    });
 });
