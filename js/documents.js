@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
         mobileNav.classList.toggle('active');
+        
+        // Toggle body scroll when menu is open
+        if (mobileNav.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
     
     // Close mobile menu when clicking a link
@@ -17,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
     
@@ -25,46 +33,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const docError = document.getElementById('docError');
     const docContent = document.getElementById('documentsContent');
     
-    docPasswordForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const password = document.getElementById('docPassword').value;
-        
-        if (password === 'yabesh@2082') {
-            docError.textContent = '';
-            docContent.style.display = 'block';
+    if (docPasswordForm) {
+        docPasswordForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Load documents content
-            docContent.innerHTML = `
-                <h3>Academic Documents</h3>
-                <p>This section contains my academic documents that are accessible only to authorized persons.</p>
-                
-                <div class="document-item">
-                    <h4>SEE Certificate</h4>
-                    <p>Year: 2078</p>
-                    <p>School: Janajyoti P.D.M Secondary School</p>
-                    <div class="access-note">* Available upon request to authorized persons *</div>
-                </div>
-                
-                <div class="document-item">
-                    <h4>BLE Certificate</h4>
-                    <p>Year: 2077</p>
-                    <p>School: Somang Jib Academy</p>
-                    <div class="access-note">* Available upon request to authorized persons *</div>
-                </div>
-                
-                <div class="document-item">
-                    <h4>Current School Documents</h4>
-                    <p>Class: 12</p>
-                    <p>School: Kathmandu Model Secondary School, Bagbazar</p>
-                    <div class="access-note">* Available upon request to authorized persons *</div>
-                </div>
-            `;
+            const password = document.getElementById('docPassword').value;
             
-            // Hide password form
-            this.style.display = 'none';
-        } else {
-            docError.textContent = 'Incorrect password. Please try again.';
-        }
+            if (password === 'yabesh@2082') {
+                docError.textContent = '';
+                docContent.style.display = 'block';
+                
+                // Load documents content
+                docContent.innerHTML = `
+                    <h3>Academic Documents</h3>
+                    <p>This section contains my academic documents that are accessible only to authorized persons.</p>
+                    
+                    <div class="document-item">
+                        <h4>SEE Certificate</h4>
+                        <p>Year: 2078</p>
+                        <p>School: Janajyoti P.D.M Secondary School</p>
+                        <div class="access-note">* Available upon request to authorized persons *</div>
+                    </div>
+                    
+                    <div class="document-item">
+                        <h4>BLE Certificate</h4>
+                        <p>Year: 2077</p>
+                        <p>School: Somang Jib Academy</p>
+                        <div class="access-note">* Available upon request to authorized persons *</div>
+                    </div>
+                    
+                    <div class="document-item">
+                        <h4>Current School Documents</h4>
+                        <p>Class: 12</p>
+                        <p>School: Kathmandu Model Secondary School, Bagbazar</p>
+                        <div class="access-note">* Available upon request to authorized persons *</div>
+                    </div>
+                `;
+                
+                // Hide password form
+                this.style.display = 'none';
+            } else {
+                docError.textContent = 'Incorrect password. Please try again.';
+                document.getElementById('docPassword').value = '';
+            }
+        });
+    }
+    
+    // Hide loader when page is loaded
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.querySelector('.loader').classList.add('hidden');
+        }, 1000);
     });
 });
