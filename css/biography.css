@@ -1,0 +1,76 @@
+/* Biography Page Styles */
+.biography {
+    padding-top: 150px;
+    min-height: 100vh;
+}
+
+.password-protected {
+    background: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.password-form {
+    margin-bottom: 40px;
+}
+
+.password-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.password-form input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.password-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.error-message {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.biography-content {
+    text-align: left;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    display: none;
+}
+
+.biography-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.biography-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .password-protected {
+        padding: 30px 20px;
+    }
+    
+    .biography {
+        padding-top: 120px;
+    }
+}
