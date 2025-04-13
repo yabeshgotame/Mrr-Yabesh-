@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div class="unlock-animation" id="unlockAnimation">
+        <div class="lock-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="loading-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">
@@ -35,7 +44,7 @@
     <main>
         <section class="documents">
             <div class="container">
-                <div class="password-protected">
+                <div class="password-protected" id="passwordSection">
                     <div class="security-header">
                         <i class="fas fa-lock"></i>
                         <h2>Secure Documents Portal</h2>
@@ -45,7 +54,7 @@
                             <label for="docPassword"><i class="fas fa-key"></i> Enter Password:</label>
                             <input type="password" id="docPassword" placeholder="••••••••" required>
                         </div>
-                        <button type="submit" class="btn"><i class="fas fa-file-alt"></i> View Documents</button>
+                        <button type="submit" class="btn" id="docSubmitBtn"><i class="fas fa-file-alt"></i> View Documents</button>
                         <p id="docError" class="error-message"></p>
                     </div>
                     <div class="secure-note">
@@ -53,20 +62,12 @@
                         <p>Authorized access only. All activities are logged.</p>
                     </div>
                 </div>
+
+                <div class="documents-content" id="documentsContent"></div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="index.html" class="footer-home-btn">
-                    <i class="fas fa-arrow-left"></i> Return to Home
-                </a>
-            </div>
-        </div>
-    </footer>
-
     <script src="js/documents.js"></script>
 </body>
-    </html>
+                                </html>
