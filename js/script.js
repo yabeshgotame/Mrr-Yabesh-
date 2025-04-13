@@ -89,3 +89,89 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Add this to the DOMContentLoaded event in script.js
+
+// Create particle background
+function createParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    document.body.appendChild(particlesContainer);
+    
+    const particleCount = window.innerWidth < 768 ? 30 : 100;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random properties
+        const size = Math.random() * 5 + 2;
+        const posX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * -20;
+        
+        // Apply styles
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.bottom = '0';
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.opacity = Math.random() * 0.5 + 0.1;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Smooth scroll to sections with offset
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+
+// Initialize effects
+createParticles();
+// Add this at the beginning of script.js
+document.body.insertAdjacentHTML('afterbegin', `
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h3>Loading Portfolio</h3>
+        </div>
+    </div>
+`);
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.querySelector('.loader').classList.add('hidden');
+    }, 1000);
+});
+
