@@ -27,4 +27,52 @@
 }
 
 .password-form input {
-    width: 100
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.password-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.error-message {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.documents-content {
+    text-align: left;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    display: none;
+}
+
+.documents-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.documents-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .password-protected {
+        padding: 30px 20px;
+    }
+    
+    .documents {
+        padding-top: 120px;
+    }
+        }
