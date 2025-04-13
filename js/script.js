@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
         mobileNav.classList.toggle('active');
+        
+        // Toggle body scroll when menu is open
+        if (mobileNav.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
     
     // Close mobile menu when clicking a link
@@ -17,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
     
@@ -36,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             firework.style.setProperty('--tx', `${tx}px`);
             firework.style.setProperty('--ty', `${ty}px`);
         });
-    }, 1000);
+    }, 1500);
     
     // Close popup when clicking close button
     closeBtn.addEventListener('click', function() {
@@ -64,19 +72,76 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+            if (this.getAttribute('href') === '#') {
+                e.preventDefault();
+                return;
+            }
             
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
             const targetElement = document.querySelector(targetId);
+            
             if (targetElement) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+                
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
+    });
+    
+    // Create particle background
+    function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
+        
+        const particleCount = window.innerWidth < 768 ? 30 : 80;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random properties
+            const size = Math.random() * 5 + 2;
+            const posX = Math.random() * window.innerWidth;
+            const duration = Math.random() * 15 + 10;
+            const delay = Math.random() * -20;
+            const opacity = Math.random() * 0.5 + 0.1;
+            
+            // Apply styles
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${posX}px`;
+            particle.style.bottom = '0';
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.opacity = opacity;
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+    
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
     });
     
     // Header scroll effect
@@ -88,90 +153,14 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.boxShadow = 'none';
         }
     });
-});
-// Add this to the DOMContentLoaded event in script.js
-
-// Create particle background
-function createParticles() {
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles';
-    document.body.appendChild(particlesContainer);
     
-    const particleCount = window.innerWidth < 768 ? 30 : 100;
+    // Initialize effects
+    createParticles();
     
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        // Random properties
-        const size = Math.random() * 5 + 2;
-        const posX = Math.random() * window.innerWidth;
-        const duration = Math.random() * 10 + 10;
-        const delay = Math.random() * -20;
-        
-        // Apply styles
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}px`;
-        particle.style.bottom = '0';
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.opacity = Math.random() * 0.5 + 0.1;
-        
-        particlesContainer.appendChild(particle);
-    }
-}
-
-// Smooth scroll to sections with offset
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 100,
-                behavior: 'smooth'
-            });
-        }
+    // Hide loader when page is loaded
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.querySelector('.loader').classList.add('hidden');
+        }, 1000);
     });
 });
-
-// Intersection Observer for scroll animations
-const observerOptions = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-});
-
-// Initialize effects
-createParticles();
-// Add this at the beginning of script.js
-document.body.insertAdjacentHTML('afterbegin', `
-    <div class="loader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <h3>Loading Portfolio</h3>
-        </div>
-    </div>
-`);
-
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.querySelector('.loader').classList.add('hidden');
-    }, 1000);
-});
-
