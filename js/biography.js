@@ -9,20 +9,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Password form submission
-    const bioPasswordForm = document.getElementById('bioPasswordForm');
-    if (bioPasswordForm) {
-        bioPasswordForm.addEventListener('submit', function(e) {
+    const passwordForm = document.getElementById('bioPasswordForm');
+    const passwordInput = document.getElementById('bioPassword');
+    const errorElement = document.getElementById('bioError');
+    const contentArea = document.getElementById('biographyContent');
+
+    if (passwordForm) {
+        passwordForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const password = document.getElementById('bioPassword').value;
-            const errorElement = document.getElementById('bioError');
+            const password = passwordInput.value.trim();
             
             if (password === 'yabesh@2082') {
                 errorElement.textContent = '';
-                // Successful login would redirect or show content here
-                alert('Authentication successful! Biography content would be displayed here.');
+                passwordForm.style.display = 'none';
+                
+                // Display actual biography content
+                contentArea.style.display = 'block';
+                contentArea.innerHTML = `
+                    <div class="biography-details">
+                        <h3>Ganesh Gotame</h3>
+                        <p><strong>Date of Birth:</strong> <span class="blur">2007/09/08</span></p>
+                        <p><strong>Education:</strong> Currently studying in Grade 12 at Kathmandu Model Secondary School</p>
+                        <p><strong>Skills:</strong> Video Editing, Content Writing (Nepali & English)</p>
+                        <div class="access-note">* Detailed information available upon request *</div>
+                    </div>
+                `;
             } else {
-                errorElement.textContent = 'Incorrect password. Please try again.';
-                document.getElementById('bioPassword').value = '';
+                errorElement.textContent = '✗ Incorrect password. Please try again.';
+                passwordInput.value = '';
+                passwordInput.focus();
             }
         });
     }
