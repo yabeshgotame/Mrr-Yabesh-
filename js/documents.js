@@ -1,5 +1,6 @@
+// IDENTICAL STRUCTURE TO biography.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Elements
+    // Same elements selection
     const passwordForm = document.getElementById('passwordSection');
     const contentArea = document.getElementById('documentsContent');
     const passwordInput = document.getElementById('docPassword');
@@ -8,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const unlockAnimation = document.getElementById('unlockAnimation');
     const progressBar = document.querySelector('.progress');
 
-    // Mobile menu toggle
+    // Same mobile menu
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('.mobile-nav');
     hamburger.addEventListener('click', function() {
@@ -16,51 +17,42 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileNav.classList.toggle('active');
     });
 
-    // Password submission
+    // Same password handling
     submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
         const password = passwordInput.value.trim();
         
         if (password === 'yabesh@2082') {
             errorElement.textContent = '';
-            
-            // Show unlock animation
             unlockAnimation.classList.add('active');
             progressBar.style.width = '100%';
             
-            // After animation completes
             setTimeout(() => {
                 unlockAnimation.classList.remove('active');
-                
-                // Hide password form
                 passwordForm.style.opacity = '0';
                 passwordForm.style.transform = 'translateY(-20px)';
                 
-                // Load and show content
+                // Documents content structured EXACTLY like biography
                 contentArea.innerHTML = `
                     <div class="documents-details">
                         <h2>Academic Documents</h2>
+                        
                         <div class="doc-section">
                             <h3><i class="fas fa-certificate"></i> Certificates</h3>
                             <ul>
-                                <li>SEE Certificate - Janajyoti P.D.M Secondary School (2078)</li>
-                                <li>BLE Certificate - Somang Jib Academy (2077)</li>
+                                <li><strong>SEE Certificate</strong> - Janajyoti P.D.M Secondary School (2078)</li>
+                                <li><strong>BLE Certificate</strong> - Somang Jib Academy (2077)</li>
                             </ul>
                         </div>
+                        
                         <div class="doc-section">
-                            <h3><i class="fas fa-file-alt"></i> Current Records</h3>
+                            <h3><i class="fas fa-school"></i> Current Education</h3>
                             <ul>
-                                <li>Grade 12 Academic Transcript - Kathmandu Model Secondary School</li>
-                                <li>Character Certificate - Kathmandu Model Secondary School</li>
+                                <li><strong>Grade 12 Transcript</strong> - Kathmandu Model Secondary School</li>
+                                <li><strong>Character Certificate</strong> - Kathmandu Model Secondary School</li>
                             </ul>
                         </div>
-                        <div class="doc-section">
-                            <h3><i class="fas fa-award"></i> Achievements</h3>
-                            <ul>
-                                <li>Academic Excellence Award (2077)</li>
-                                <li>Best Content Writer Award (School Level, 2078)</li>
-                            </ul>
-                        </div>
+                        
                         <div class="access-note">
                             <i class="fas fa-lock"></i>
                             <p>Original documents available upon verification</p>
@@ -68,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
                 
-                // Show content with animation
                 setTimeout(() => {
                     passwordForm.style.display = 'none';
                     contentArea.classList.add('show');
@@ -76,15 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             }, 2000);
         } else {
+            // Same error handling
             errorElement.textContent = '✗ Incorrect password. Please try again.';
             passwordInput.value = '';
             passwordInput.focus();
-            
-            // Shake animation for wrong password
             passwordForm.style.animation = 'shake 0.5s';
-            setTimeout(() => {
-                passwordForm.style.animation = '';
-            }, 500);
+            setTimeout(() => passwordForm.style.animation = '', 500);
         }
     });
 });
