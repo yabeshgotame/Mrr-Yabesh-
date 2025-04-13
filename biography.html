@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biography | Ganesh Gotame</title>
+    <link rel="stylesheet" href="css/biography.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Ganesh Gotame</h1>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="biography.html">Biography</a></li>
+                    <li><a href="documents.html">Documents</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="biography.html">Biography</a></li>
+            <li><a href="documents.html">Documents</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="biography">
+            <div class="container">
+                <h2 class="section-title">Biography</h2>
+                <div class="password-protected">
+                    <div class="password-form">
+                        <h3>Due to privacy, you need to enter password to view the biography</h3>
+                        <form id="bioPasswordForm">
+                            <input type="password" id="bioPassword" placeholder="Enter Password" required>
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                        <p id="bioError" class="error-message"></p>
+                    </div>
+                    <div class="biography-content" id="biographyContent">
+                        <!-- Content will be loaded here after password verification -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Ganesh Gotame</h3>
+                    <p>Student | Video Editor | Content Writer</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="biography.html">Biography</a></li>
+                        <li><a href="documents.html">Documents</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> Ganesh Gotame. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/biography.js"></script>
+</body>
+                              </html>
