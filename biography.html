@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div class="unlock-animation" id="unlockAnimation">
+        <div class="lock-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="loading-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">
@@ -35,7 +44,7 @@
     <main>
         <section class="biography">
             <div class="container">
-                <div class="password-protected">
+                <div class="password-protected" id="passwordSection">
                     <div class="security-header">
                         <i class="fas fa-user-shield"></i>
                         <h2>Secure Biography Access</h2>
@@ -45,7 +54,7 @@
                             <label for="bioPassword"><i class="fas fa-key"></i> Enter Password:</label>
                             <input type="password" id="bioPassword" placeholder="••••••••" required>
                         </div>
-                        <button type="submit" class="btn"><i class="fas fa-unlock"></i> Access Biography</button>
+                        <button type="submit" class="btn" id="bioSubmitBtn"><i class="fas fa-unlock"></i> Access Biography</button>
                         <p id="bioError" class="error-message"></p>
                     </div>
                     <div class="secure-note">
@@ -53,20 +62,12 @@
                         <p>This content is password protected for privacy reasons.</p>
                     </div>
                 </div>
+
+                <div class="biography-content" id="biographyContent"></div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="index.html" class="footer-home-btn">
-                    <i class="fas fa-arrow-left"></i> Return to Home
-                </a>
-            </div>
-        </div>
-    </footer>
-
     <script src="js/biography.js"></script>
 </body>
-    </html>
+                        </html>
