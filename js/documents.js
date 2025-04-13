@@ -38,25 +38,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Load and show content
                 contentArea.innerHTML = `
-                    <div class="documents-list">
+                    <div class="documents-details">
                         <h2>Academic Documents</h2>
-                        <div class="document-item">
-                            <h3><i class="fas fa-certificate"></i> SEE Certificate</h3>
-                            <p>Year: 2078</p>
-                            <p>School: Janajyoti P.D.M Secondary School</p>
-                            <div class="access-note">* Original available upon request *</div>
+                        <div class="doc-section">
+                            <h3><i class="fas fa-certificate"></i> Certificates</h3>
+                            <ul>
+                                <li>SEE Certificate - Janajyoti P.D.M Secondary School (2078)</li>
+                                <li>BLE Certificate - Somang Jib Academy (2077)</li>
+                            </ul>
                         </div>
-                        <div class="document-item">
-                            <h3><i class="fas fa-certificate"></i> BLE Certificate</h3>
-                            <p>Year: 2077</p>
-                            <p>School: Somang Jib Academy</p>
-                            <div class="access-note">* Original available upon request *</div>
+                        <div class="doc-section">
+                            <h3><i class="fas fa-file-alt"></i> Current Records</h3>
+                            <ul>
+                                <li>Grade 12 Academic Transcript - Kathmandu Model Secondary School</li>
+                                <li>Character Certificate - Kathmandu Model Secondary School</li>
+                            </ul>
                         </div>
-                        <div class="document-item">
-                            <h3><i class="fas fa-file-alt"></i> Current Academic Records</h3>
-                            <p>Grade: 12</p>
-                            <p>School: Kathmandu Model Secondary School</p>
-                            <div class="access-note">* Updated records available *</div>
+                        <div class="doc-section">
+                            <h3><i class="fas fa-award"></i> Achievements</h3>
+                            <ul>
+                                <li>Academic Excellence Award (2077)</li>
+                                <li>Best Content Writer Award (School Level, 2078)</li>
+                            </ul>
+                        </div>
+                        <div class="access-note">
+                            <i class="fas fa-lock"></i>
+                            <p>Original documents available upon verification</p>
                         </div>
                     </div>
                 `;
