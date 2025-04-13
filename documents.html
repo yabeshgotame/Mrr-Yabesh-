@@ -4,75 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documents | Ganesh Gotame</title>
-    <link rel="stylesheet" href="css/documents.css"> <!-- Now identical to biography.css -->
+    <link rel="stylesheet" href="css/documents.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Same unlock animation as biography -->
-    <div class="unlock-animation" id="unlockAnimation">
-        <div class="lock-icon">
-            <i class="fas fa-lock"></i>
-        </div>
-        <div class="loading-bar">
-            <div class="progress"></div>
-        </div>
-    </div>
-
-    <!-- Identical header -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Ganesh Gotame</h1>
+    <!-- Pre-Password Hero Section -->
+    <section class="preview-hero">
+        <div class="preview-content">
+            <div class="preview-lock">
+                <i class="fas fa-lock"></i>
+                <div class="lock-pulse"></div>
             </div>
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="index.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Same mobile menu -->
-    <nav class="mobile-nav">
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section class="documents">
-            <div class="container">
-                <!-- Same password section structure -->
-                <div class="password-protected" id="passwordSection">
-                    <div class="security-header">
-                        <i class="fas fa-lock"></i>
-                        <h2>Secure Documents Access</h2>
-                    </div>
-                    <div class="password-form">
-                        <div class="input-group">
-                            <label for="docPassword"><i class="fas fa-key"></i> Enter Password:</label>
-                            <input type="password" id="docPassword" placeholder="••••••••" required>
-                        </div>
-                        <button type="submit" class="btn" id="docSubmitBtn"><i class="fas fa-file-alt"></i> View Documents</button>
-                        <p id="docError" class="error-message"></p>
-                    </div>
-                    <div class="secure-note">
-                        <i class="fas fa-info-circle"></i>
-                        <p>Authorized access only. All activities are logged.</p>
-                    </div>
+            <h2>Academic Documents</h2>
+            <p>Secure access to certificates and records</p>
+            <div class="document-previews">
+                <div class="doc-preview">
+                    <i class="fas fa-certificate"></i>
+                    <span>Certificates</span>
                 </div>
-
-                <!-- Same content area structure -->
-                <div class="documents-content" id="documentsContent"></div>
+                <div class="doc-preview">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Transcripts</span>
+                </div>
+                <div class="doc-preview">
+                    <i class="fas fa-award"></i>
+                    <span>Achievements</span>
+                </div>
             </div>
-        </section>
-    </main>
+            <div class="access-prompt">
+                <i class="fas fa-arrow-down"></i>
+                <span>Enter password below to view</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Password Protection Section -->
+    <section class="password-section">
+        <div class="container">
+            <div class="password-protected" id="passwordSection">
+                <div class="security-header">
+                    <i class="fas fa-user-shield"></i>
+                    <h2>Verify Your Identity</h2>
+                </div>
+                <div class="password-form">
+                    <div class="input-group">
+                        <label for="docPassword"><i class="fas fa-key"></i> Enter Password:</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="docPassword" placeholder="••••••••" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn" id="docSubmitBtn">
+                        <span class="btn-text">Unlock Documents</span>
+                        <span class="btn-loader">
+                            <span class="loader-dot"></span>
+                            <span class="loader-dot"></span>
+                            <span class="loader-dot"></span>
+                        </span>
+                    </button>
+                    <p id="docError" class="error-message"></p>
+                </div>
+                <div class="secure-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Access restricted to authorized individuals only</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Content (hidden until unlocked) -->
+    <section class="documents-content" id="documentsContent"></section>
+
+    <!-- Same unlock animation -->
+    <div class="unlock-animation" id="unlockAnimation"></div>
 
     <script src="js/documents.js"></script>
 </body>
-    </html>
+                        </html>
