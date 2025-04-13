@@ -8,44 +8,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header (no changes) -->
     <header>
-        <!-- Same header as biography.html -->
+        <div class="container">
+            <div class="logo">
+                <h1>Ganesh Gotame</h1>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
     </header>
 
-    <!-- Mobile Menu (no changes) -->
     <nav class="mobile-nav">
-        <!-- Same mobile menu as biography.html -->
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        </ul>
     </nav>
 
-    <!-- Main Content (no changes) -->
     <main>
         <section class="documents">
             <div class="container">
-                <h2 class="section-title">Academic Documents</h2>
                 <div class="password-protected">
-                    <div class="lock-icon">
+                    <div class="security-header">
                         <i class="fas fa-lock"></i>
+                        <h2>Secure Documents Portal</h2>
                     </div>
                     <div class="password-form">
-                        <h3>This is access to those who are related due to privacy</h3>
-                        <form id="docPasswordForm">
-                            <input type="password" id="docPassword" placeholder="Enter Password" required>
-                            <button type="submit" class="btn">Unlock</button>
-                        </form>
+                        <div class="input-group">
+                            <label for="docPassword"><i class="fas fa-key"></i> Enter Password:</label>
+                            <input type="password" id="docPassword" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn"><i class="fas fa-file-alt"></i> View Documents</button>
                         <p id="docError" class="error-message"></p>
                     </div>
-                    <div class="documents-content" id="documentsContent"></div>
+                    <div class="secure-note">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Authorized access only. All activities are logged.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer (no changes) -->
     <footer>
-        <!-- Same footer as biography.html -->
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-home-btn">
+                    <i class="fas fa-arrow-left"></i> Return to Home
+                </a>
+            </div>
+        </div>
     </footer>
 
     <script src="js/documents.js"></script>
 </body>
-</html>
+    </html>
