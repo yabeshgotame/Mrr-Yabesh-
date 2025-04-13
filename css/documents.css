@@ -1,4 +1,14 @@
 /* Documents Page Styles */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3a0ca3;
+    --dark-color: #14213d;
+    --light-color: #f8f9fa;
+    --accent-color: #f72585;
+    --text-color: #212529;
+    --text-light: #6c757d;
+}
+
 .documents {
     padding-top: 150px;
     min-height: 100vh;
@@ -34,7 +44,7 @@
     border-radius: 50px;
     font-size: 1rem;
     margin-bottom: 20px;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .password-form input:focus {
@@ -56,23 +66,13 @@
     display: none;
 }
 
-.documents-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: var(--dark-color);
-}
-
-.documents-content p {
-    margin-bottom: 20px;
-    line-height: 1.8;
-}
-
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .password-protected {
-        padding: 30px 20px;
-    }
-    
     .documents {
         padding-top: 120px;
     }
-        }
+    
+    .password-protected {
+        padding: 30px 20px;
+    }
+}
